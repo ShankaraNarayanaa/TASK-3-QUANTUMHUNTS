@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .image-container {
+      height: 300px; /* Set your preferred height */
+      margin-bottom: 20px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .center-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px; /* Adjust the size of the icon */
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="row" id="image-container">
+    <!-- Your images will go here -->
+  </div>
+</div>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript/jQuery -->
+<script>
+  $(document).ready(function () {
+    const images = ["i1.jfif", "i2.jfif", "i3.jfif", "i4.jfif", "i5.jfif", "i6.jfif", "i7.jfif", "i8.jfif", "i9.jfif", "i10.jfif"];
+
+    const container = $("#image-container");
+
+    images.forEach((image) => {
+      const imageDiv = $("<div>").addClass("col-md-4 image-container");
+      imageDiv.css("background-image", `url(${image})`);
+
+      // Add small icon at the center
+      const icon = $("<img>").attr("src", "HTML5.png").addClass("center-icon");
+      imageDiv.append(icon);
+
+      container.append(imageDiv);
+    });
+  });
+</script>
+
+</body>
+</html>
